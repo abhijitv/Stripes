@@ -5,8 +5,8 @@
 
 const canvas = document.querySelector('#canvas');
 const ctx = canvas.getContext('2d');
-const penColor = document.querySelector('input [name="penColor"]');
-const penWidth = document.querySelector('input [name="penWidth"]');
+const penColor = document.querySelector('input[name="penColor"]');
+const penWidth = document.querySelector('input[name="penWidth"]');
 const Saver = document.querySelector('#saver');
 
 ctx.strokeStyle = '#000000';
@@ -26,14 +26,22 @@ function saveFile() {
 
 }
 
-function draw() {
+function draw(e) {
   console.log('move');
-  pen.down = true;
+  if (!pen.down) return;
+  ctx.lineWidth = penWidth.value;
+  ctx.strokeStyle = penColor.value;
+  
+  ctx.beginPath();
+  ctx.moveTo(pen.x, pen.y);
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.stroke();
+  [pen.x, pen.y] = [e.offsetX, e.offsetY];
 }
 
 function penDown(e) {
-    pen.down = true;
-  [pen.x,pen.y] = [e.offsetX, e.offsetY];
+  pen.down = true;
+  [pen.x, pen.y] = [e.offsetX, e.offsetY];
   console.log(e);
 }
 
