@@ -22,8 +22,9 @@ let pen = {
 
 
 function saveFile() {
-
-
+  console.log('saving file');
+  let image = canvas.toDataURL();
+  document.getElementById('myImage').src = image;
 }
 
 function draw(e) {
@@ -31,7 +32,6 @@ function draw(e) {
   if (!pen.down) return;
   ctx.lineWidth = penWidth.value;
   ctx.strokeStyle = penColor.value;
-  
   ctx.beginPath();
   ctx.moveTo(pen.x, pen.y);
   ctx.lineTo(e.offsetX, e.offsetY);
@@ -55,4 +55,3 @@ canvas.addEventListener('mousedown', penDown);
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', noDown);
 canvas.addEventListener('mouseout', noDown);
-
