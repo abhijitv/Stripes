@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript HTML5 Canvas drawing</title>
+    <style>
+      #myCanvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+    <div class="dashboard"></div>
+    <button id="btnDraw" click="drawRect()">Draw</button>
+    <img src="" id="myImage" />
+  </body>
+
+  <script language="JavaScript">
+    // get the canvas
+    canvas = document.querySelector("#myCanvas");
+    ctx = canvas.getContext("2d");
+
+    // Add event to the button
+    const btnDraw = document.querySelector("#btnDraw");
+
+    btnDraw.addEventListener("click", drawRect);
+
+    function drawRect() {
+      ctx.fillStyle = "rgb(200,0,200)";
+      ctx.fillRect(50, 40, 100, 30);
+    }
+  </script>
+</html>

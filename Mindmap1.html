@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript HTML5 Canvas drawing</title>
+    <style>
+      #myCanvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas id="myCanvas" width="578" height="200"></canvas>
+    <div class="dashboard"></div>
+    <img src="" id="myImage" />
+
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var context = canvas.getContext("2d");
+
+      context.beginPath();
+
+      context.rect(188, 50, 200, 100);
+      context.fillStyle = "red";
+      context.shadowColor = "#999";
+      context.shadowBlur = 20;
+      context.shadowOffsetX = 15;
+      context.shadowOffsetY = 15;
+      context.fill();
+      context.fillStyle = "black";
+      context.font = "20px Courier";
+      context.shadowColor = "transparent";
+      context.shadowBlur = 0;
+      context.shadowOffsetX = 0;
+      context.shadowOffsetY = 0;
+      context.fillText(`Yo! this ia an aha moment!`, 10, 80);
+
+      context.lineWidth = 7;
+    </script>
+  </body>
+</html>
